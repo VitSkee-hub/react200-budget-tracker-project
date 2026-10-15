@@ -1,9 +1,9 @@
-import React, { createContext, useReducer } from 'react';
-import { appReducer, initialState } from './reducer';
+import { createContext, useReducer } from "react";
+import { appReducer, initialState } from "./reducer";
 
-export const AppContext = createContext();
+export const AppContext = createContext(null);
 
-export const AppProvider = ({ children }) => {
+export function AppProvider({ children }) {
   const [state, dispatch] = useReducer(appReducer, initialState);
 
   return (
@@ -11,4 +11,4 @@ export const AppProvider = ({ children }) => {
       {children}
     </AppContext.Provider>
   );
-};
+}
